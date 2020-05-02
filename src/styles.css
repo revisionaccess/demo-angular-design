@@ -1,4 +1,51 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 14px; }
+
+.js-nav-link {
+    margin: 0 30px
+}
+
+.is-active #js-nav-links {
+    margin-left: auto !important;
+}
+.is-active .js-nav-link {
+    margin: 0;
+}
+#cart-link-container {
+    padding: 15px;
+}
+.is-active #cart-link-container {
+    padding: 0;
+}
+
+#hamburger-button {
+    margin-right: 35px 40px 35px 0 !important; 
+    border:none;
+}
+
+#home-hero-first {
+    background-image: url('/assets/woman-in-pink-tp.jpg');
+    background-size: cover;
+    /* background-repeat: no-repeat;
+    background-position: 50% 50%; */
+}
+#home-hero-first .container {
+    background-color: rgba(255, 255, 255, 0.678) !important;
+    margin-left: 0;
+    padding: 10px 30px;
+}
+.title {
+    color: rgba(0,0,0,1.0) !important;
+    font-size: 5em !important;
+    opacity: 1.0 !important;
+}
+.subtitle {
+    color: rgba(0,0,0,1.0) !important;
+    font-size: 2.5em !important;
+    opacity: 1.0 !important;
+}
+.hero-body {
+    padding: 11.5rem 1.5rem !important;
+}
