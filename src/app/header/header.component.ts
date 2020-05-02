@@ -7,8 +7,8 @@ import { Component, OnInit } from '@angular/core';
       <nav class="navbar">
           <div class="navbar-brand">
             <div style="padding: 0 20px">
-              <a class="navbar-item" href="/" style="background-color: #fff; display: block !important">
-                <img src="../../assets/toilet-paper.png" role="img" width="95" height="60" style="max-height:none !important">
+              <a aria-label="Shop TP home" class="navbar-item" href="/" style="background-color: #fff; display: block !important">
+                <img src="../../assets/toilet-paper.png" alt="Shop TP" role="img" width="95" height="60" style="max-height:none !important">
               </a>
             </div>
               <button id="hamburger-button" class="navbar-burger burger" [ngClass]="{ 'is-active': navbarOpen }" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample" (click)="toggleNavbar()">
@@ -26,7 +26,7 @@ import { Component, OnInit } from '@angular/core';
             </div>
             <div id="cart-link-container" class="navbar-end">
               <a id="cart-link" href="#" class="navbar-item" style="margin:0">
-                <img src="../../assets/commerce-and-shopping.svg" width="45" height="45">
+                <img alt="cart" src="../../assets/commerce-and-shopping.svg" width="45" height="45">
               </a>
             </div>
           </div>
