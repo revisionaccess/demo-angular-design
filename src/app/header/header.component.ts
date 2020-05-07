@@ -1,9 +1,12 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild } from '@angular/core';
 
 @Component({
   selector: 'app-header',
   template: `
     <header>
+      <div class="head-banner">
+        <img id="truck-icon" src="../../assets/truck_screenshot.png"><p>We are shipping during COVID-19.</p>
+      </div>
       <nav class="navbar">
           <div class="navbar-brand">
             <div style="padding: 0 20px">
@@ -27,6 +30,7 @@ import { Component, OnInit } from '@angular/core';
             <div id="cart-link-container" class="navbar-end">
               <a id="cart-link" href="#" class="navbar-item" style="margin:0">
                 <img alt="cart" src="../../assets/commerce-and-shopping.svg" width="45" height="45">
+                <span *ngIf="cartCount > 0" class='badge badge-warning' id='lblCartCount'> 5 </span>
               </a>
             </div>
           </div>
@@ -34,19 +38,44 @@ import { Component, OnInit } from '@angular/core';
     </header>
 
   `,
-  styles: [
-  ]
+  styles: [`
+    #cart-link {
+      position: relative;
+    }
+    .badge {
+      position: absolute;
+      top: 20px;
+      right: 12px;
+      color: #fff;
+      background-color: #202e3b;
+      padding-left: 9px;
+      padding-right: 9px;
+      -webkit-border-radius: 9px;
+      -moz-border-radius: 9px;
+      border-radius: 9px;
+    }
+    .badge-warning[href] {
+      background-color: #c67605;
+    }
+  `]
 })
 export class HeaderComponent implements OnInit {
+
+
   navbarOpen = false;
 
   toggleNavbar() {
     this.navbarOpen = !this.navbarOpen;
-    console.log('toggleNavbar function fired');
   }
 
   constructor() { 
     //
+  }
+
+  cartCount:Number;
+
+  receiveCartIncrement($event) {
+    this.cartCount = $event;
   }
 
   ngOnInit(): void {

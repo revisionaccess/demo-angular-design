@@ -1,10 +1,39 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 14px; }
+body { margin: 0; font-family: "Usual", sans-serif !important; font-size: 14px; }
+
+.sr-only {
+    position: absolute;
+    left: -10000px;
+    top: auto;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    z-index: 100;
+}
+
+.head-banner {
+    font-size: 1em;
+    text-align: center;
+    background-color: #202e3b;
+    color: #dddddd;
+    padding: 15px 40px;
+}
+#truck-icon {
+    width:20px;
+    vertical-align: middle;
+    margin-right: 10px
+}
+.head-banner p {
+    display: inline-block;
+}
+
+/* Navigation */
 
 .js-nav-link {
-    margin: 0 30px
+    margin: 0 30px;
+    font-size: 1em;
 }
 
 .is-active #js-nav-links {
@@ -37,15 +66,51 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; font-size: 
     padding: 10px 30px;
 }
 .title {
-    color: rgba(0,0,0,1.0) !important;
+    color: #202e3b !important;
     font-size: 5em !important;
     opacity: 1.0 !important;
 }
 .subtitle {
-    color: rgba(0,0,0,1.0) !important;
+    color: #202e3b !important;
     font-size: 2.5em !important;
     opacity: 1.0 !important;
 }
 .hero-body {
     padding: 11.5rem 1.5rem !important;
 }
+
+li .title {
+    font-size: 3em !important;
+}
+
+
+/* Filter dropdown */
+
+#select-label {
+    font-weight: bold;
+    letter-spacing: 0.5px;
+}
+
+select {
+    font-size: 1.0em;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+}
+
+#applyFilterBtn {
+    border: none;
+    color: #fff;
+    font-size: 0.9em;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    background-color: #202e3b;
+    min-width: 70px;
+    padding: 0;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    line-height: 24px !important;
+    outline:none;
+    margin:0;
+}
+
