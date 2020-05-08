@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-header',
@@ -30,7 +31,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
             <div id="cart-link-container" class="navbar-end">
               <a id="cart-link" href="#" class="navbar-item" style="margin:0">
                 <img alt="cart" src="../../assets/commerce-and-shopping.svg" width="45" height="45">
-                <span *ngIf="cartCount > 0" class='badge badge-warning' id='lblCartCount'> 5 </span>
+                <span *ngIf="cartCount > 0" class='badge badge-warning' id='lblCartCount'> {{ cartCount }} </span>
               </a>
             </div>
           </div>
@@ -45,7 +46,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
     .badge {
       position: absolute;
       top: 20px;
-      right: 12px;
+      right: 8px;
       color: #fff;
       background-color: #202e3b;
       padding-left: 9px;
@@ -61,6 +62,7 @@ import { Component, OnInit, Input, ViewChild } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
+  cartCount: number;
 
   navbarOpen = false;
 
@@ -68,17 +70,12 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor() { 
+  constructor(private sharedService: SharedService) { 
     //
   }
 
-  cartCount:Number;
-
-  receiveCartIncrement($event) {
-    this.cartCount = $event;
-  }
-
   ngOnInit(): void {
+    this.sharedService.sharedMessage.subscribe(cartCount => this.cartCount = cartCount);
   }
 
 }

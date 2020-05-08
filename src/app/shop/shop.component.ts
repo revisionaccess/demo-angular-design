@@ -2,6 +2,7 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import {A11yModule} from '@angular/cdk/a11y';
+import { SharedService } from '../shared.service';
 
 
 @Component({
@@ -40,7 +41,7 @@ import {A11yModule} from '@angular/cdk/a11y';
                     </div>
                   </div>
                   <div class="content" style="text-align:center;">
-                    <button class="addCardBtn" [attr.aria-describedby]="shopItem.ID" (click)="sendCartIncrement()">Add to Cart</button>
+                    <button class="addCartBtn" [attr.aria-describedby]="shopItem.ID" (click)="newMessage()">Add to Cart</button>
                   </div>
                 </div>
               </div>
@@ -68,7 +69,7 @@ import {A11yModule} from '@angular/cdk/a11y';
     .item-cost {
       font-size: 1.2em !important;
     }
-    .addCardBtn {
+    .addCartBtn {
       border: none;
       color: #fff;
       font-size: 1em;
@@ -92,14 +93,9 @@ export class ShopComponent implements OnInit {
   // resource for importing data from json
       // https://www.encodedna.com/angular/read-an-external-json-file-in-angular-4-and-convert-data-to-table.htm
 
-  constructor(private httpService: HttpClient) { }
+  constructor(private httpService: HttpClient, private sharedService: SharedService) { }
 
-  cartCount : Number = 2;
-  @Output() cartEvent = new EventEmitter<Number>();
-  sendCartIncrement() {
-    console.log('add to cart');
-    this.cartEvent.emit(this.cartCount);
-  }
+  cartCount: number;
 
   public i : Number = 0;
 
@@ -184,6 +180,13 @@ export class ShopComponent implements OnInit {
         console.log (err.message);
       }
     );
+
+    this.sharedService.sharedMessage.subscribe(cartCount => this.cartCount = cartCount);
+  }
+
+  newMessage() {
+    this.cartCount = this.cartCount + 1;
+    this.sharedService.nextMessage(this.cartCount);
   }
 
 }
