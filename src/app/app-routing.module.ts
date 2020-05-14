@@ -7,11 +7,13 @@ import { ShopComponent } from './shop/shop.component';
 const routes: Routes = [
   {
     path: '',
+    data: { title: 'Home - TP Depot' },
     component: HomeComponent,
     pathMatch: 'full'
   },
   {
     path: 'shop',
+    data: { title: 'Shop - TP Depot' },
     component: ShopComponent
   }
 ];

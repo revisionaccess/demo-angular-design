@@ -1,4 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
+import { Title } from '@angular/platform-browser';
+import { Observable } from 'rxjs';
+import { filter } from 'rxjs/operators';
 
 @Component({
   selector: 'app-root',
@@ -13,5 +17,17 @@ import { Component } from '@angular/core';
   styles: []
 })
 export class AppComponent {
-  title = 'demo-angular-design';
+  title$: Observable<string>;
+
+  constructor( private router: Router, private activatedRoute: ActivatedRoute, titleService: Title  ) {}
+
+  ngOnInit() {
+    this.router.events.pipe(
+      filter(e => e instanceof NavigationEnd)).subscribe(() => {
+      const mainHeader = document.querySelector('h1')
+      if (mainHeader) {
+        mainHeader.focus();
+      }
+    });
+  }
 }

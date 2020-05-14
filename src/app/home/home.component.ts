@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
       <section id="home-hero-first" class="hero is-light is-large">
         <div class="hero-body">
           <div class="container">
-            <h1 class="title">
+            <h1 class="title" tabindex="-1">
               Get All The TP You Can Handle
             </h1>
             <h2 class="subtitle">
@@ -28,5 +28,7 @@ export class HomeComponent implements OnInit {
 
   ngOnInit(): void {
   }
+
+  ngOn
 
 }

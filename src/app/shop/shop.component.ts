@@ -9,6 +9,9 @@ import { SharedService } from '../shared.service';
   selector: 'app-shop',
   template: `
     <main>
+
+      <h1 class="sr-only" tabindex="-1">Shop toilet paper and accessories</h1>
+
       <section class="section" style="padding: 24px;">
 
         <fieldset style="margin: 0 auto 24px auto;">
