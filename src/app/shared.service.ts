@@ -11,7 +11,7 @@ export class SharedService {
 
   constructor() { }
 
-  nextMessage(cartCount: number) {
+  newCartCount(cartCount: number) {
     this.cartCount.next(cartCount);
   }
 }

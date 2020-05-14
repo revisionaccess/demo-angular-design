@@ -3,6 +3,7 @@ import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
 import {A11yModule} from '@angular/cdk/a11y';
 import { SharedService } from '../shared.service';
+import { Title } from '@angular/platform-browser';
 
 
 @Component({
@@ -44,7 +45,7 @@ import { SharedService } from '../shared.service';
                     </div>
                   </div>
                   <div class="content" style="text-align:center;">
-                    <button class="addCartBtn" [attr.aria-describedby]="shopItem.ID" (click)="newMessage()">Add to Cart</button>
+                    <button class="addCartBtn" [attr.aria-describedby]="shopItem.ID" (click)="newCartItem()">Add to Cart</button>
                   </div>
                 </div>
               </div>
@@ -96,7 +97,10 @@ export class ShopComponent implements OnInit {
   // resource for importing data from json
       // https://www.encodedna.com/angular/read-an-external-json-file-in-angular-4-and-convert-data-to-table.htm
 
-  constructor(private httpService: HttpClient, private sharedService: SharedService) { }
+  // Set title
+  title = "Shop - TP Depot";
+
+  constructor(private httpService: HttpClient, private sharedService: SharedService, private titleService: Title) { }
 
   cartCount: number;
 
@@ -185,11 +189,15 @@ export class ShopComponent implements OnInit {
     );
 
     this.sharedService.sharedMessage.subscribe(cartCount => this.cartCount = cartCount);
+
+    // Set title
+    this.titleService.setTitle(this.title);
   }
 
-  newMessage() {
+  // Update Cart Count
+  newCartItem() {
     this.cartCount = this.cartCount + 1;
-    this.sharedService.nextMessage(this.cartCount);
+    this.sharedService.newCartCount(this.cartCount);
   }
 
 }

@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
-import { Title } from '@angular/platform-browser';
-import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 
 @Component({
@@ -17,11 +15,11 @@ import { filter } from 'rxjs/operators';
   styles: []
 })
 export class AppComponent {
-  title$: Observable<string>;
 
-  constructor( private router: Router, private activatedRoute: ActivatedRoute, titleService: Title  ) {}
+  constructor( private router: Router, private activatedRoute: ActivatedRoute ) {}
 
   ngOnInit() {
+    // Focus to h1 on navigation
     this.router.events.pipe(
       filter(e => e instanceof NavigationEnd)).subscribe(() => {
       const mainHeader = document.querySelector('h1')

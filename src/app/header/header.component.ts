@@ -71,9 +71,8 @@ export class HeaderComponent implements OnInit {
   }
 
   constructor(private sharedService: SharedService) { 
-    //
   }
-
+  
   ngOnInit(): void {
     this.sharedService.sharedMessage.subscribe(cartCount => this.cartCount = cartCount);
   }

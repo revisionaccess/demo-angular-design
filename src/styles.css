@@ -13,6 +13,10 @@ body { margin: 0; font-family: "Usual", sans-serif !important; font-size: 14px; 
     z-index: 100;
 }
 
+h1:focus {
+    outline:none;
+}
+
 .head-banner {
     font-size: 1em;
     text-align: center;
