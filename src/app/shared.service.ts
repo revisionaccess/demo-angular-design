@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -15,6 +15,7 @@ export class SharedService {
   newCartCount(cartCount: number) {
     this.cartCount.next(cartCount);
   }
+
 }
 
 // https://medium.com/@chameeradulanga87/sharing-data-between-angular-components-f76fa680bf76

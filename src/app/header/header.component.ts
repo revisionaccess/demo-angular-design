@@ -2,11 +2,16 @@ import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, ViewChi
 import { Directive, HostBinding, HostListener } from '@angular/core';
 import { SharedService } from '../shared.service';
 import { ShopComponent } from 'src/app/shop/shop.component';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
   template: `
     <header>
+    <div id="skip-container">
+      <a href="#target" class="skip-link">Skip to Main Content</a>
+    </div>
+
       <div class="head-banner">
         <img id="truck-icon" src="../../assets/truck_screenshot.png"><p>We are shipping during COVID-19.</p>
       </div>
@@ -73,12 +78,11 @@ export class HeaderComponent implements OnInit {
     this.navbarOpen = !this.navbarOpen;
   }
 
-  constructor(private sharedService: SharedService) { 
+  constructor(private sharedService: SharedService, private router: Router) { 
   }
   
   ngOnInit(): void {
     this.sharedService.sharedMessage.subscribe(cartCount => this.cartCount = cartCount);
-
   }
 
 

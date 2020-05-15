@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import {A11yModule} from '@angular/cdk/a11y';
 import { SharedService } from '../shared.service';
 import { Title } from '@angular/platform-browser';
+import { Router, NavigationEnd } from '@angular/router';
+import { filter } from 'rxjs/operators';
 
 
 @Component({
@@ -11,7 +13,10 @@ import { Title } from '@angular/platform-browser';
   template: `
     <main>
 
-      <h1 class="sr-only" tabindex="-1">Shop toilet paper and accessories</h1>
+      <h1 id="target" class="sr-only" tabindex="-1" #target>Shop toilet paper and accessories</h1>
+
+      <div id="filter-live-region" class="sr-only" aria-live="polite">{{ filterAnnouncement }}</div>
+      <div id="cart-live-region" class="sr-only" aria-live="polite">{{ cartAddAnnouncement }}</div>
 
       <section class="section" style="padding: 24px;">
 
@@ -97,16 +102,25 @@ export class ShopComponent implements OnInit {
   // resource for importing data from json
       // https://www.encodedna.com/angular/read-an-external-json-file-in-angular-4-and-convert-data-to-table.htm
 
+  constructor(private httpService: HttpClient, private sharedService: SharedService, private titleService: Title, private router: Router) { }
+
   // Set title
   title = "Shop - TP Depot";
 
-  constructor(private httpService: HttpClient, private sharedService: SharedService, private titleService: Title) { }
+  public shopInventory: string []; // original json file
 
   cartCount: number;
-
   public i : Number = 0;
+  public cartAddAnnouncement: string;
 
-  public shopInventory: string []; // original json file
+  // Update Cart Count
+  newCartItem() {
+    this.cartCount = this.cartCount + 1;
+    this.sharedService.newCartCount(this.cartCount);
+    let target = event.target || event.srcElement || event.currentTarget as HTMLButtonElement;
+    let itemName = event['path'][2].children[0].children[0].children[0].innerText;
+    this.cartAddAnnouncement = itemName + " added to cart";
+  }
 
   public filteredInventory: string []; // changes on filter
   public filterValue: string = "all";
@@ -115,6 +129,8 @@ export class ShopComponent implements OnInit {
   public socks: string [] = [];
   public earrings: string [] = [];
 
+  public filterAnnouncement: string;
+  
   filterItems() {
     this.filteredInventory = [];
     switch(this.filterValue) { 
@@ -139,6 +155,7 @@ export class ShopComponent implements OnInit {
          break; 
       } 
    }
+   this.filterAnnouncement = "Filter applied";
   }
 
   sortAll() {
@@ -192,14 +209,6 @@ export class ShopComponent implements OnInit {
     // Set title
     this.titleService.setTitle(this.title);
 
-    // Set Current Page (for aria-current)
-
-  }
-
-  // Update Cart Count
-  newCartItem() {
-    this.cartCount = this.cartCount + 1;
-    this.sharedService.newCartCount(this.cartCount);
   }
 
 }

@@ -3,6 +3,21 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: "Usual", sans-serif !important; font-size: 14px; }
 
+.skip-link {
+    background: #000;
+    color: #fff;
+    left: 0;
+    padding: .75em;
+    position: fixed;
+    top: 0;
+    transform: translateY(-10em);
+    transition: transform .2s ease-in-out;
+}
+.skip-link:focus {
+    transform: translateY(0em);
+}
+
+
 .sr-only {
     position: absolute;
     left: -10000px;

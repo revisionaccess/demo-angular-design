@@ -6,6 +6,7 @@ import { filter } from 'rxjs/operators';
   selector: 'app-root',
   template: `
     <!--The content below is only a placeholder and can be replaced.-->
+    
     <app-header></app-header>
 
     <router-outlet></router-outlet>
