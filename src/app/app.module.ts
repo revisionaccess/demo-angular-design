@@ -11,6 +11,7 @@ import { ShopComponent } from './shop/shop.component';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SharedService } from './shared.service';
+import { AboutComponent } from './about/about.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SharedService } from './shared.service';
     HomeComponent,
     HeaderComponent,
     FooterComponent,
-    ShopComponent
+    ShopComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

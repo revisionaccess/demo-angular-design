@@ -4,6 +4,7 @@ import { BehaviorSubject } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
+
 export class SharedService {
 
   private cartCount = new BehaviorSubject(0);

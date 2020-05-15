@@ -1,5 +1,7 @@
-import { Component, OnInit, Input, ViewChild } from '@angular/core';
+import { Component, OnInit, AfterViewInit, Input, ViewChild, ElementRef, ViewChildren } from '@angular/core';
+import { Directive, HostBinding, HostListener } from '@angular/core';
 import { SharedService } from '../shared.service';
+import { ShopComponent } from 'src/app/shop/shop.component';
 
 @Component({
   selector: 'app-header',
@@ -11,7 +13,7 @@ import { SharedService } from '../shared.service';
       <nav class="navbar">
           <div class="navbar-brand">
             <div style="padding: 0 20px">
-              <a aria-label="Shop TP home" class="navbar-item" href="/" style="background-color: #fff; display: block !important">
+              <a routerLink="/" aria-label="Shop TP home" id="home-link" class="navbar-item" style="background-color: #fff; display: block !important">
                 <img src="../../assets/toilet-paper.png" alt="Shop TP" role="img" width="95" height="60" style="max-height:none !important">
               </a>
             </div>
@@ -23,10 +25,10 @@ import { SharedService } from '../shared.service';
           </div>
 
           <div id="navMenu" class="navbar-menu" [ngClass]="{ 'is-active': navbarOpen }">
-            <div id="js-nav-links" class="navbar-end" style="font-size: 1.4em; font-weight:400; margin-left: 15%; text-transform: uppercase;">
-              <a href="/shop" class="navbar-item js-nav-link">Shop</a>
-              <a href="#" class="navbar-item js-nav-link">About</a>
-              <a href="#" class="navbar-item js-nav-link">Contact</a>
+            <div id="js-nav-links" class="navbar-end">
+              <a routerLink="/shop" routerLinkActive="active" class="navbar-item js-nav-link">Shop <span class="current-page sr-only"></span></a>
+              <a routerLink="/about" routerLinkActive="active" class="navbar-item js-nav-link">About <span class="current-page sr-only"></span></a>
+              <a routerLink="/contact" routerLinkActive="active" class="navbar-item js-nav-link">Contact <span class="current-page sr-only"></span></a>
             </div>
             <div id="cart-link-container" class="navbar-end">
               <a id="cart-link" href="#" class="navbar-item" style="margin:0">
@@ -60,6 +62,7 @@ import { SharedService } from '../shared.service';
     }
   `]
 })
+
 export class HeaderComponent implements OnInit {
 
   cartCount: number;
@@ -75,6 +78,8 @@ export class HeaderComponent implements OnInit {
   
   ngOnInit(): void {
     this.sharedService.sharedMessage.subscribe(cartCount => this.cartCount = cartCount);
+
   }
+
 
 }

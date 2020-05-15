@@ -181,7 +181,6 @@ export class ShopComponent implements OnInit {
       data => {
         this.shopInventory = data as string [];
         this.filteredInventory = this.shopInventory;
-        console.log(data);
       },
       (err: HttpErrorResponse) => {
         console.log (err.message);
@@ -192,6 +191,9 @@ export class ShopComponent implements OnInit {
 
     // Set title
     this.titleService.setTitle(this.title);
+
+    // Set Current Page (for aria-current)
+
   }
 
   // Update Cart Count

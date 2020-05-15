@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { SharedService } from '../shared.service';
 
 @Component({
   selector: 'app-home',
@@ -25,12 +26,16 @@ import { Title } from '@angular/platform-browser';
 })
 export class HomeComponent implements OnInit {
 
-  constructor( private titleService: Title ) { }
+  constructor( private sharedService: SharedService, private titleService: Title ) { }
+
+  cartCount: number;
 
   title = "Home - TP Depot";
 
   ngOnInit(): void {
      this.titleService.setTitle(this.title);
+
+     this.sharedService.sharedMessage.subscribe(cartCount => this.cartCount = cartCount);
   }
 
 }
