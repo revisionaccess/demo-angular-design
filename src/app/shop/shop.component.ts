@@ -1,7 +1,7 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http'
 import { FormsModule } from '@angular/forms';
-import {A11yModule} from '@angular/cdk/a11y';
+import { A11yModule } from '@angular/cdk/a11y';
 import { SharedService } from '../shared.service';
 import { Title } from '@angular/platform-browser';
 import { Router, NavigationEnd } from '@angular/router';

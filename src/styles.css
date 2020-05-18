@@ -3,6 +3,74 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: "Usual", sans-serif !important; font-size: 14px; }
 
+h2#featured-item-title {
+    font-size:26px;
+    color: #202e3b;
+    padding: 0 0 30px;
+    margin: 0 auto;
+}
+p#featured-item-desc {
+    margin: 0 auto;
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+#shopNowBtn {
+    color: #202e3b;
+    font-size: 1em;
+    line-height: 40px !important;
+    letter-spacing: 0.5px;
+    font-weight: 400;
+    background-color: #fff;
+    min-width: 110px;
+    padding: 0 20px;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+    margin: 30px 0 0 0;
+    border: solid 1px #202e3b;
+}
+#shopNowBtn:focus, #shopNowBtn:hover {
+    color: #fff;
+    background-color: #202e3b;
+    cursor: pointer;
+}
+
+.quote {
+    font-size: 18px;
+    font-weight: 300;
+    letter-spacing: 0.5px;
+}
+
+#bathroom-insider {
+    color: #202e3b;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    line-height: 1.1em;
+    font-size: 26px;
+    margin: 24px auto 30px auto;
+    font-weight: bolder;
+}
+
+.star {
+    opacity: 0.7;
+}
+
+#the-seat {
+    color: #202e3b;
+    opacity: 0.9;
+    text-transform: uppercase;
+    letter-spacing: 0.2px;
+    line-height: 1.5em;
+    font-size: 36px;
+    margin: 12px auto 18px auto;
+    font-weight: bolder;
+    font-family: impact !important;
+}
+
 .skip-link {
     background: #000;
     color: #fff;
@@ -62,7 +130,7 @@ h1:focus {
     font-size: 1em;
     color: #202e3b;
     padding: 0 12px;
-    max-height: 75px;
+    line-height: 1.0;
 }
 .js-nav-link:focus, .js-nav-link:hover {
     color: #fff !important;
@@ -110,7 +178,8 @@ h1:focus {
 }
 
 #home-hero-first {
-    background-image: url('/assets/woman-in-pink-tp.jpg');
+    /* background-image: url('/assets/woman-in-pink-tp.jpg'); */
+    background-image: url('/assets/person-in-white-long-sleeve-shirt-tissue-and-vegetable.jpg');
     background-size: cover;
     /* background-repeat: no-repeat;
     background-position: 50% 50%; */
@@ -169,3 +238,62 @@ select {
     margin:0;
 }
 
+footer {
+    background-color: #202e3b;
+    color:#fff;
+    clear:left;
+    padding: 100px 40px;
+}
+
+.footer-list {
+    color: #fff;
+}
+.footer-list-header {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 30px;
+}
+.footer-list a {
+    color: #fff;
+    font-size: 14px;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    line-height: 1.65;
+    opacity: 80%;
+}
+
+#subscribe-header {
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0 0 30px;
+}
+#subscribe-desc {
+    margin-bottom: 20px;
+    color: #fff;
+    font-size: 16px;
+    letter-spacing: 1px;
+    font-weight: lighter;
+    line-height: 1.65;
+    opacity: 80%;
+}
+#subscribe-input {
+    max-width: 250px;
+    display: inline-block;
+}
+#subscribeBtn {
+    border: 1px solid #fff;
+    margin: 3px 0 0 0;
+    color: #fff;
+    font-size: 1em;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+    font-weight: 600;
+    background-color: #202e3b;
+    min-width: 120px;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    outline: none;
+}

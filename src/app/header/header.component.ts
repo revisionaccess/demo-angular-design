@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
     </div>
 
       <div class="head-banner">
-        <img id="truck-icon" src="../../assets/truck_screenshot.png"><p>We are shipping during COVID-19.</p>
+        <img id="truck-icon" src="../../assets/truck_screenshot.png" alt=""><p>We are shipping during COVID-19.</p>
       </div>
       <nav class="navbar">
           <div class="navbar-brand">
