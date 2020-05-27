@@ -13,7 +13,7 @@ import { filter } from 'rxjs/operators';
   template: `
     <main>
 
-      <h1 id="target" class="sr-only" tabindex="-1" #target>Shop toilet paper and accessories</h1>
+      <h1 id="target" class="sr-only" tabindex="-1" focus>Shop toilet paper and accessories</h1>
 
       <div id="filter-live-region" class="sr-only" aria-live="polite">{{ filterAnnouncement }}</div>
       <div id="cart-live-region" class="sr-only" aria-live="polite">{{ cartAddAnnouncement }}</div>

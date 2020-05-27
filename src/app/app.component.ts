@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, AfterContentInit } from '@angular/core';
 import { Router, ActivatedRoute, NavigationEnd } from '@angular/router';
 import { filter } from 'rxjs/operators';
 
@@ -19,7 +19,7 @@ export class AppComponent {
 
   constructor( private router: Router, private activatedRoute: ActivatedRoute ) {}
 
-  ngOnInit() {
+  ngAfterContentInit() {
     // Focus to h1 on navigation
     this.router.events.pipe(
       filter(e => e instanceof NavigationEnd)).subscribe(() => {
@@ -29,4 +29,15 @@ export class AppComponent {
       }
     });
   }
+
+  // ngOnInit() {
+  //   // Focus to h1 on navigation
+  //   this.router.events.pipe(
+  //     filter(e => e instanceof NavigationEnd)).subscribe(() => {
+  //     const mainHeader = document.querySelector('h1')
+  //     if (mainHeader) {
+  //       mainHeader.focus();
+  //     }
+  //   });
+  // }
 }

@@ -3,6 +3,21 @@
 html, body { height: 100%; }
 body { margin: 0; font-family: "Usual", sans-serif !important; font-size: 14px; }
 
+h1 {
+    font-size: 26px;
+    line-height: 32px;
+    font-weight: 600;
+}
+
+h1:focus {
+    border: 2px dotted green;
+}
+
+h2#about-heading {
+    font-size: 1.7em;
+    margin: 20px auto;
+}
+
 h2#featured-item-title {
     font-size:26px;
     color: #202e3b;
@@ -296,4 +311,59 @@ footer {
     border-radius: 5px;
     text-align: center;
     outline: none;
+}
+
+#error-summary-container {
+    outline:none;
+    border: 1px solid red;
+    margin-bottom: 24px;
+    display:none;
+}
+
+.form-button {
+    min-width: 110px;
+    padding: 2px 20px;
+    line-height: 40px;
+    display: inline-block;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+    font-size: 14px;
+}
+/* .form-button:hover, .form-button:focus {
+    
+} */
+
+#send-form-button {
+    color: #ffffff;
+    background-color: #202e3b;
+    float:right;
+}
+#send-form-button:focus, #send-form-button:hover {
+    border: 2px solid #fff;
+    /* background-color: #ffffff;
+    color: #202e3b; */
+}
+
+#clear-form-button {
+    background-color: #ffffff;
+    color: #202e3b;
+}
+#clear-form-button:focus, #clear-form-button:hover {
+    border: 2px solid #202e3b;
+    /* color: #ffffff;
+    background-color: #202e3b; */
+}
+
+#contact-heading {
+    margin: 0 0 20px;
+    font-size: 18px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #202e3b;
+    letter-spacing: .5px;
+}
+
+#contact-form label {
+    padding: 0 0 4px 4px;
 }

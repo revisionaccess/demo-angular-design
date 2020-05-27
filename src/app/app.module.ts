@@ -12,6 +12,10 @@ import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
 import { SharedService } from './shared.service';
 import { AboutComponent } from './about/about.component';
+import { ContactComponent } from './contact/contact.component';
+import { BadButtonComponent } from './bad-button/bad-button.component';
+import { AccessibleButtonComponent } from './accessible-button/accessible-button.component';
+import { FocusDirective } from './focus.directive';
 
 
 @NgModule({
@@ -21,7 +25,11 @@ import { AboutComponent } from './about/about.component';
     HeaderComponent,
     FooterComponent,
     ShopComponent,
-    AboutComponent
+    AboutComponent,
+    ContactComponent,
+    BadButtonComponent,
+    AccessibleButtonComponent,
+    FocusDirective
   ],
   imports: [
     BrowserModule,

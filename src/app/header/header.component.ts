@@ -38,7 +38,7 @@ import { Router } from '@angular/router';
             <div id="cart-link-container" class="navbar-end">
               <a id="cart-link" href="#" class="navbar-item" style="margin:0">
                 <img alt="cart" src="../../assets/commerce-and-shopping.svg" width="45" height="45">
-                <span *ngIf="cartCount > 0" class='badge badge-warning' id='lblCartCount'> {{ cartCount }} </span>
+                <div *ngIf="cartCount > 0" class='badge badge-warning' id='lblCartCount'> {{ cartCount }} <span class="sr-only"> items</span> </div>
               </a>
             </div>
           </div>
